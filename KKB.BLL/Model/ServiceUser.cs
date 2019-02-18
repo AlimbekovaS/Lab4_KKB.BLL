@@ -3,38 +3,56 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RandomUser.Model;
+using LiteDB;
 
 
 namespace KKB.BLL.Model
 {
     public class ServiceUser
     {
-        public bool LogOn(User user, out string message)
+        public bool Registration(User user, out string message)
         {
-            if (user.login == "admin" & user.password.Equals("admin")) 
+            try
             {
-                results result= GenerateUser.GetUser();
-                user.fullName =  string.Format("{0} {1} {2}",
-                    result.name.title, 
-                    result.name.first, 
-                    result.name.last);
-                message= string.Format("{0} {1} {2}",
-                    result.name.title,
-                    result.name.first,
-                    result.name.last);
+                using (LiteDatabase db = new LiteDatabase("KKB.db"))
+                {
+                    var users = db.GetCollection<User>("User");
+                    users.Insert(user);
 
-                user.accounts = ServiceAccount.GetAccounts();
-                message = "ok";
+                }
+                message = "Registration complated successfuly!";
                 return true;
-                
             }
-            else
+            catch (Exception ex)
             {
-                message = "Неправильный пароль";
+
+                message = ex.Message;
                 return false;
             }
             
+        }
+        public User LogOn(string login, string passowrd, out string message)
+        {
+            User user = null;
+            using (LiteDatabase db = new LiteDatabase("KKB.db"))
+            {
+                var users = db.GetCollection<User>("User").FindAll();
+
+                if (users.Any(a=>a.login==login && a.password== passowrd))
+                {
+                    user = users.FirstOrDefault(a => a.login == login & a.password == passowrd);
+
+                    message = "OK";
+
+                }
+                else
+                {
+                    message = "Wrong login or passowrd";
+                }
+            
+            }
+
+            return user;
         }
     }
 }

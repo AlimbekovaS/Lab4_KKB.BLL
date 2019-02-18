@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KKB.BLL", "KKB.BLL\KKB.BLL.csproj", "{CE7C806E-F67F-4760-A40D-F681DDD39EA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KKB.WEB", "KKB.WEB\KKB.WEB.csproj", "{1BD828C6-9E88-4C49-876E-D4414495FF8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CE7C806E-F67F-4760-A40D-F681DDD39EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE7C806E-F67F-4760-A40D-F681DDD39EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE7C806E-F67F-4760-A40D-F681DDD39EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD828C6-9E88-4C49-876E-D4414495FF8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD828C6-9E88-4C49-876E-D4414495FF8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD828C6-9E88-4C49-876E-D4414495FF8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD828C6-9E88-4C49-876E-D4414495FF8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
